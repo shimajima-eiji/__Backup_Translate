@@ -15,7 +15,7 @@ jobs:
           
       - name: pipパッケージをインストール
         run: |
-          pip install requests json
+          pip install requests
           
       - name: curlを実行
         run: curl -sf https://raw.githubusercontent.com/shimajima-eiji/Settings_Environment/main/for_WSL/translate.sh | sh -s -- "." "ja" "en" | tee translate.log
