@@ -17,8 +17,7 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           pip install requests
-          pip install multiprocessing
-          pip install googletrans==4.0.0-rc1
+          pip install git+https://github.com/alainrouillon/py-googletrans@feature/enhance-use-of-direct-api
           
       - name: curlを実行
         run: curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/for_Development/googletrans.py | python3
