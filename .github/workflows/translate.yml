@@ -11,28 +11,28 @@ jobs:
         run: |
           sudo apt update
           sudo apt upgrade
-          sudo apt install curl python pip translate-shell
+          sudo apt install curl python pip
           
       - name: pipパッケージをインストール
         run: |
-          pip install requests
+          pip install requests multiprocessing git+https://github.com/alainrouillon/py-googletrans@feature/enhance-use-of-direct-api
           
       - name: curlを実行
-        run: curl -sf https://raw.githubusercontent.com/shimajima-eiji/Settings_Environment/main/for_WSL/translate.sh | sh -s -- "." "ja" "en" | tee translate.log
+        run: curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/for_Development/googletrans.py | python
         
-      # 翻訳した場合のみ処理する
-      - name: Commitとpush
-        run: |
-          if [ $(tail -n 1 translate.log) -ne 0 ]
-          then
-            rm translate.log  # 先にログファイルを消さないと、ログファイルもpushしてしまう
-            git config --global user.email "${{ secrets.EMAIL }}"
-            git config --global user.name "shimajima-eiji"
-            git add -A
-            git commit -m "[Update]translated ja -> en: by Github Actions"
-            git pull
-            git push
-            echo "[COMPLETE] translate."
-          else
-            echo "[SKIP] No translate."
-          fi   
+#       # 翻訳した場合のみ処理する
+#       - name: Commitとpush
+#         run: |
+#           if [ $(tail -n 1 translate.log) -ne 0 ]
+#           then
+#             rm translate.log  # 先にログファイルを消さないと、ログファイルもpushしてしまう
+#             git config --global user.email "${{ secrets.EMAIL }}"
+#             git config --global user.name "shimajima-eiji"
+#             git add -A
+#             git commit -m "[Update]translated ja -> en: by Github Actions"
+#             git pull
+#             git push
+#             echo "[COMPLETE] translate."
+#           else
+#             echo "[SKIP] No translate."
+#           fi   
