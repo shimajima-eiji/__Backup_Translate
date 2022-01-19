@@ -7,10 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: curlとpythonとpipをインストール
-        run: |
-          sudo apt install curl git python3
-          
+      # curlもgitもpython3もデフォルトで入っているのでsudo apt installは不要    
       - name: pipパッケージ(requests multiprocessing googletrans)をインストール
         run: |
           python3 -m pip install --upgrade pip
@@ -22,6 +19,7 @@ jobs:
         run: |
           curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/translate/translate_path.py >run.py
           python3 run.py ${{ secrets.ENDPOINT }} .
+          ls -laR
           
 #       # 翻訳した場合のみ処理する
 #       - name: Commitとpush
