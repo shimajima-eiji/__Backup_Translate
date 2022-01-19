@@ -17,12 +17,13 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           pip install requests
+          pip install pathlib
           pip install git+https://github.com/alainrouillon/py-googletrans@feature/enhance-use-of-direct-api
           
       - name: curlを実行
         run: |
           curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/translate/translate_path.py >run.py
-          python3 run.py
+          python3 run.py {{ secrets.ENDPOINT }} .
         
 #       # 翻訳した場合のみ処理する
 #       - name: Commitとpush
