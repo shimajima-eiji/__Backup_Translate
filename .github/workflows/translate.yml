@@ -20,6 +20,7 @@ jobs:
           curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/translate/translate_path.py >run.py
           python3 run.py ${{ secrets.ENDPOINT }} . | tee traslate_path.log
           rm run.py
+          ls -lR
           
       # 翻訳した場合のみ処理する
       - name: Commitとpush
