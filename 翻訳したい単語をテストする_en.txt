@@ -1,0 +1,3 @@
+I made this file in text, but it also translates it in a markdown file.
+If you want to change the conditions of the file you want to translate, change the script below
+(In the future, is there a way to make it changeable using environment variables?)
