@@ -23,8 +23,8 @@ jobs:
       - name: curlを実行
         run: |
           curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/translate/translate_path.py >run.py
-          python3 run.py {{ secrets.ENDPOINT }} .
-        
+          python3 run.py ${{ secrets.ENDPOINT }} .
+          
 #       # 翻訳した場合のみ処理する
 #       - name: Commitとpush
 #         run: |
