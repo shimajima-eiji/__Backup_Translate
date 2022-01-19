@@ -11,11 +11,14 @@ jobs:
         run: |
           sudo apt update
           sudo apt upgrade
-          sudo apt install curl git python3 pip
+          sudo apt install curl git python3
           
       - name: pipパッケージ(requests multiprocessing googletrans)をインストール
         run: |
-          pip3 install requests multiprocessing git+https://github.com/alainrouillon/py-googletrans@feature/enhance-use-of-direct-api
+          python -m pip install --upgrade pip
+          pip install requests
+          pip install multiprocessing
+          pip install git+https://github.com/alainrouillon/py-googletrans@feature/enhance-use-of-direct-api
           
       - name: curlを実行
         run: curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/for_Development/googletrans.py | python3
