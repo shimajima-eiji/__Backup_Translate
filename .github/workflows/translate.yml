@@ -19,21 +19,21 @@ jobs:
         run: |
           curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/translate/translate_path.py >run.py
           python3 run.py ${{ secrets.ENDPOINT }} .
-          ls -laR
+          rm run.py
           
-#       # 翻訳した場合のみ処理する
-#       - name: Commitとpush
-#         run: |
-#           if [ $(tail -n 1 translate.log) -ne 0 ]
-#           then
-#             rm translate.log  # 先にログファイルを消さないと、ログファイルもpushしてしまう
-#             git config --global user.email "${{ secrets.EMAIL }}"
-#             git config --global user.name "shimajima-eiji"
-#             git add -A
-#             git commit -m "[Update]translated ja -> en: by Github Actions"
-#             git pull
-#             git push
-#             echo "[COMPLETE] translate."
-#           else
-#             echo "[SKIP] No translate."
-#           fi   
+      # 翻訳した場合のみ処理する
+      - name: Commitとpush
+        run: |
+          if [ $(tail -n 1 traslate_path.log) -ne 0 ]
+          then
+            rm traslate_path.log  # 先にログファイルを消さないと、ログファイルもpushしてしまう
+            git config --global user.email "${{ secrets.EMAIL }}"
+            git config --global user.name "shimajima-eiji"
+            git add -A
+            git commit -m "[Update]translated ja -> en: by Github Actions"
+            git pull
+            git push
+            echo "[COMPLETE] translate."
+          else
+            echo "[SKIP] No translate."
+          fi   
