@@ -1,4 +1,4 @@
-name: 日本語→英語に翻訳して_en.mdファイルを作成する
+name: 日本語→英語に翻訳して_en.(txt or md)を作成する
 on: [push]
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
       - name: curlを実行
         run: |
           curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/translate/translate_path.py >run.py
-          python3 run.py ${{ secrets.ENDPOINT }} .
+          python3 run.py ${{ secrets.ENDPOINT }} . | tee traslate_path.log
           rm run.py
           
       # 翻訳した場合のみ処理する
