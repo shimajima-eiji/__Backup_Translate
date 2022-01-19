@@ -9,8 +9,6 @@ jobs:
       
       - name: curlとpythonとpipをインストール
         run: |
-          sudo apt update
-          sudo apt upgrade
           sudo apt install curl git python3
           
       - name: pipパッケージ(requests multiprocessing googletrans)をインストール
