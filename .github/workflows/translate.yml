@@ -11,7 +11,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt upgrade
-          sudo apt install curl git python3
+          sudo apt install curl git python3 build-essensial
           
       - name: pipパッケージ(requests multiprocessing googletrans)をインストール
         run: |
