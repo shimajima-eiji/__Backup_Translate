@@ -15,7 +15,7 @@ jobs:
           
       - name: pipパッケージ(requests multiprocessing googletrans)をインストール
         run: |
-          python -m pip install --upgrade pip
+          python3 -m pip install --upgrade pip
           pip install requests
           pip install multiprocessing
           pip install git+https://github.com/alainrouillon/py-googletrans@feature/enhance-use-of-direct-api
