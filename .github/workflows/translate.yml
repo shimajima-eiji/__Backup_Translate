@@ -22,6 +22,7 @@ jobs:
       - name: curlを実行
         run: |
           curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/for_Development/googletrans_test.py >trans.py
+          
           python3 trans.py
         
 #       # 翻訳した場合のみ処理する
