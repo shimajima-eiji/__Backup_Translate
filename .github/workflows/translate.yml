@@ -7,18 +7,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: curlとpythonとpipとtranslate-shellをインストール
+      - name: curlとpythonとpipをインストール
         run: |
           sudo apt update
           sudo apt upgrade
-          sudo apt install curl python pip
+          sudo apt install curl git python3 pip3
           
-      - name: pipパッケージをインストール
+      - name: pipパッケージ(requests multiprocessing googletrans)をインストール
         run: |
-          pip install requests multiprocessing git+https://github.com/alainrouillon/py-googletrans@feature/enhance-use-of-direct-api
+          pip3 install requests multiprocessing git+https://github.com/alainrouillon/py-googletrans@feature/enhance-use-of-direct-api
           
       - name: curlを実行
-        run: curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/for_Development/googletrans.py | python
+        run: curl -sf https://raw.githubusercontent.com/shimajima-eiji/__Operation-Maintenance/main/for_Development/googletrans.py | python3
         
 #       # 翻訳した場合のみ処理する
 #       - name: Commitとpush
