@@ -27,7 +27,7 @@ jobs:
       # 翻訳した場合のみ処理する
       - name: Commitとpush
         run: |
-          if [ cat traslate_path.log) -ne 0 ]
+          if [ $(cat traslate_path.log) -ne 0 ]
           then
             rm traslate_path.log  # 先にログファイルを消さないと、ログファイルもpushしてしまう
             git config --global user.email "${{ secrets.EMAIL }}"
